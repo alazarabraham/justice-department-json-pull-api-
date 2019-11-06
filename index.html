@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <button id="fetchbutton">Cado</button>
+    <button id="fetchbutton">Get Justice Department Stories</button>
     <ul id="output"></ul>
     <form>
         Enter Search:<br>
@@ -54,21 +54,20 @@
                         .then(text => {
                                 // console.log(text.results[0]['body']);
                                 const results = text.results;
-                                console.log(results);
                                 // results.forEach(element => {
                                 //     // console.log(element.body);
                                 //     // output.innerHTML += element.body;
                                 // });
-                                // for(i=0;i<results.length;i++){
-                                //     const data = results[i].body;
-                                //     // const dataSplitUp = data.split("<p>");
-                                //     //     console.log(dataSplitUp);
-                                //     output.innerHTML += data;
+                                for(i=0;i<results.length;i++){
+                                    const data = results[i].body;
+                                    // const dataSplitUp = data.split("<p>");
+                                    //     console.log(dataSplitUp);
+                                    output.innerHTML += data;
 
 
                                 // }
 
-
+                                }
                             }
 
                         )
