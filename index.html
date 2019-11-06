@@ -10,28 +10,71 @@
 
 <body>
     <button id="fetchbutton">Cado</button>
-    <p id="output"></p>
+    <ul id="output"></ul>
     <form>
         Enter Search:<br>
         <input type="text" name="firstname"><br>
-      </form>
+    </form>
 
     <script type="text/javascript">
         document.getElementById("fetchbutton").addEventListener("click", getData);
-        // document.getElementById("submit").addEventListener("submit", submitData)
-        
-        function getData(){
-        
-            fetch(`https://cors-anywhere.herokuapp.com/http://www.justice.gov/api/v1/press_releases.json?pagesize=2
-`)
-            .then(response=> response.json())
-            .then(text =>{
-                console.log(text.results[0]['body']);
-            document.getElementById("output").innerHTML = text.results[0]['body'];
+        const output = document.getElementById("output");
+        // // document.getElementById("submit").addEventListener("submit", submitData)
 
-            }
+        // function getData() {
+        //     const response =  fetch('`https://cors-anywhere.herokuapp.com/https://www.justice.gov/api/v1/press_releases');
+        //     const myJson =  response.json();
+        //     console.log(JSON.stringify(myJson));
+        // }
 
-            )
+        // function getData(url = '', data = {},response) {
+        //     url = `https://cors-anywhere.herokuapp.com/https://www.justice.gov/api/v1/press_releases`
+        //     const response =  fetch(url, {
+        //         method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        //         mode: 'cors', // no-cors, *cors, same-origin
+        //         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //         credentials: 'same-origin', // include, *same-origin, omit
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //             // 'Content-Type': 'application/x-www-form-urlencoded',
+        //         },
+        //         redirect: 'follow', // manual, *follow, error
+        //         referrer: 'no-referrer', // no-referrer, *client
+        //         body: JSON.stringify(data) // body data type must match "Content-Type" header
+        //     });
+        //     console.log(response.json());
+
+        // }
+
+                function getData() {
+
+                    fetch(`https://cors-anywhere.herokuapp.com/https://www.justice.gov/api/v1/press_releases.json
+        `)
+                        .then(response => response.json())
+                        .then(text => {
+                                // console.log(text.results[0]['body']);
+                                const results = text.results;
+                                console.log(results);
+                                // results.forEach(element => {
+                                //     // console.log(element.body);
+                                //     // output.innerHTML += element.body;
+                                // });
+                                // for(i=0;i<results.length;i++){
+                                //     const data = results[i].body;
+                                //     // const dataSplitUp = data.split("<p>");
+                                //     //     console.log(dataSplitUp);
+                                //     output.innerHTML += data;
+
+
+                                // }
+
+
+                            }
+
+                        )
+        // const resultsString = results.split("<p>");
+        // for (let j = 0; j < ingredientsArray.length; j++) {}
+
         };
         // getData();
         //     async function edgar (){
@@ -58,4 +101,3 @@
 </body>
 
 </html>
-
